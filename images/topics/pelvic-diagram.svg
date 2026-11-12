@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 600" role="img" aria-labelledby="t d" font-family="Heebo, Assistant, Arial, sans-serif">
+  <title id="t">תרשים: סרעפת, שלפוחית השתן, רקטום ורצפת האגן</title>
+  <desc id="d">מבט מהצד על פלג הגוף: הסרעפת למעלה ורצפת האגן למטה עובדות יחד עם הנשימה, וביניהן שלפוחית השתן מקדימה והרקטום מאחור.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5d7a63"/>
+    </marker>
+  </defs>
+  <rect width="640" height="600" fill="#fffaf4"/>
+
+  <!-- גוף -->
+  <path d="M215,40 C185,60 170,110 172,170 C174,250 162,330 168,400 C172,470 190,530 240,560 C280,582 360,585 410,566 C455,548 470,500 466,440 C462,380 470,320 462,250 C455,180 450,110 420,60 C400,30 250,22 215,40 Z"
+        fill="#f6ebdf" stroke="#d8c3ad" stroke-width="3"/>
+
+  <!-- ריאות -->
+  <path d="M230,70 C205,95 200,150 212,185 C240,170 280,160 300,158 L298,70 C280,58 248,58 230,70 Z" fill="#f4d3cf" opacity=".8"/>
+  <path d="M330,70 L328,158 C350,160 390,170 420,185 C432,150 425,95 400,70 C382,58 348,58 330,70 Z" fill="#f4d3cf" opacity=".8"/>
+
+  <!-- עמוד שדרה -->
+  <g fill="#e2d2bf" stroke="#c9b298" stroke-width="1.5">
+    <rect x="178" y="70" width="26" height="30" rx="7"/>
+    <rect x="176" y="106" width="27" height="30" rx="7"/>
+    <rect x="174" y="142" width="28" height="30" rx="7"/>
+    <rect x="172" y="178" width="29" height="31" rx="7"/>
+    <rect x="171" y="215" width="30" height="32" rx="7"/>
+    <rect x="171" y="253" width="31" height="32" rx="7"/>
+    <rect x="172" y="291" width="31" height="33" rx="7"/>
+    <rect x="174" y="330" width="31" height="33" rx="7"/>
+    <rect x="178" y="369" width="31" height="33" rx="7"/>
+    <path d="M186,410 C200,405 214,410 218,420 C222,450 226,480 236,505 C228,512 218,510 212,500 C198,475 188,445 186,410 Z"/>
+  </g>
+
+  <!-- מעיים -->
+  <path d="M250,250 C280,232 330,236 350,252 C372,270 350,292 322,288 C292,284 268,300 286,318 C304,336 360,318 384,330 C404,342 396,368 370,372 C340,376 300,368 280,376"
+        fill="none" stroke="#efc9a8" stroke-width="18" stroke-linecap="round" opacity=".75"/>
+
+  <!-- רקטום -->
+  <path d="M282,372 C252,380 238,400 238,430 C238,465 252,500 268,540" fill="none" stroke="#c98d6b" stroke-width="26" stroke-linecap="round"/>
+  <path d="M282,372 C252,380 238,400 238,430 C238,465 252,500 268,540" fill="none" stroke="#dba88a" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- עצם הערווה -->
+  <rect x="418" y="478" width="26" height="46" rx="12" fill="#e2d2bf" stroke="#c9b298" stroke-width="1.5"/>
+
+  <!-- שלפוחית -->
+  <ellipse cx="372" cy="470" rx="44" ry="38" fill="#f5dc8e" stroke="#d9b54f" stroke-width="3"/>
+  <path d="M368,507 C368,522 366,536 362,548" stroke="#d9b54f" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+  <!-- רצפת האגן -->
+  <path d="M232,512 C270,560 380,566 420,522" fill="none" stroke="#7d9a82" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- סרעפת -->
+  <path d="M180,232 C215,150 405,150 462,232" fill="none" stroke="#7d9a82" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- חיצי תנועה משותפת -->
+  <line x1="318" y1="196" x2="318" y2="228" stroke="#5d7a63" stroke-width="3" marker-end="url(#ah)" marker-start="url(#ah)"/>
+  <line x1="318" y1="520" x2="318" y2="552" stroke="#5d7a63" stroke-width="3" marker-end="url(#ah)" marker-start="url(#ah)"/>
+
+  <!-- תוויות -->
+  <g font-size="21" font-weight="700" fill="#3f4a42" direction="rtl">
+    <line x1="448" y1="212" x2="520" y2="170" stroke="#9aab8e" stroke-width="2"/>
+    <text x="625" y="168" text-anchor="start">סרעפת</text>
+
+    <line x1="414" y1="456" x2="520" y2="404" stroke="#9aab8e" stroke-width="2"/>
+    <text x="625" y="402" text-anchor="start">שלפוחית השתן</text>
+
+    <line x1="424" y1="530" x2="520" y2="560" stroke="#9aab8e" stroke-width="2"/>
+    <text x="625" y="566" text-anchor="start">רצפת האגן</text>
+
+    <line x1="238" y1="440" x2="128" y2="440" stroke="#9aab8e" stroke-width="2"/>
+    <text x="120" y="434" text-anchor="start">רקטום</text>
+    <text x="120" y="458" text-anchor="start" font-size="16" font-weight="400" fill="#6b7468">(חלחולת)</text>
+
+    <line x1="282" y1="300" x2="128" y2="300" stroke="#9aab8e" stroke-width="2"/>
+    <text x="120" y="306" text-anchor="start">מעיים</text>
+  </g>
+  <text x="320" y="590" font-size="15" fill="#6b7468" text-anchor="middle" direction="rtl">הסרעפת ורצפת האגן נעות יחד עם הנשימה</text>
+</svg>
