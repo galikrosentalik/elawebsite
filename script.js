@@ -68,6 +68,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ניווט עוגנים בעמוד יחיד: סגירת התפריט במובייל אחרי לחיצה
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  navAnchors.forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (links && links.classList.contains("open")) {
+        links.classList.remove("open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  // תיקון נחיתה על עוגן: תמונות שנטענות תוך כדי הגלילה מזיזות את הדף,
+  // לכן מיישרים שוב אל הקטע אחרי שהגלילה והטעינה נרגעות
+  var HEADER_OFFSET = 90;
+  var realign = function (target, behavior) {
+    var top = target.getBoundingClientRect().top - HEADER_OFFSET;
+    if (Math.abs(top) > 8) window.scrollTo({ top: window.scrollY + top, behavior: behavior });
+  };
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function () {
+      var target = document.getElementById(a.getAttribute("href").slice(1));
+      if (!target) return;
+      setTimeout(function () { realign(target, "smooth"); }, 800);
+      setTimeout(function () { realign(target, "auto"); }, 1700);
+    });
+  });
+
+  // סימון הקטע הנוכחי בתפריט בזמן גלילה
+  var spyTargets = [];
+  navAnchors.forEach(function (a) {
+    if (a.classList.contains("btn")) return;
+    var sec = document.querySelector(a.getAttribute("href"));
+    if (sec) spyTargets.push({ link: a, sec: sec });
+  });
+  if (spyTargets.length) {
+    var setActive = function () {
+      var pos = window.scrollY + 140, current = spyTargets[0];
+      spyTargets.forEach(function (t) { if (t.sec.offsetTop <= pos) current = t; });
+      spyTargets.forEach(function (t) { t.link.classList.toggle("active", t === current); });
+    };
+    document.addEventListener("scroll", setActive, { passive: true });
+    setActive();
+  }
+
   // שנה בתחתית
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

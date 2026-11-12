@@ -913,3 +913,8 @@ form.contact-form {
 .img-credit { display: block; margin: -12px 22px 10px; font-size: .72rem; color: var(--text-soft); opacity: .8; }
 .img-credit a { color: inherit; }
 .area-card img.diagram { object-fit: contain; background: #fffaf4; }
+
+
+/* ===== עמוד יחיד: גלילה חלקה ועוגנים ===== */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 90px; }
