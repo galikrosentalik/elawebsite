@@ -81,9 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // תיקון נחיתה על עוגן: תמונות שנטענות תוך כדי הגלילה מזיזות את הדף,
   // לכן מיישרים שוב אל הקטע אחרי שהגלילה והטעינה נרגעות
-  var HEADER_OFFSET = 90;
+  var header = document.querySelector(".site-header");
+  var headerOffset = function () { return (header ? header.offsetHeight : 76) + 14; };
   var realign = function (target, behavior) {
-    var top = target.getBoundingClientRect().top - HEADER_OFFSET;
+    var top = target.getBoundingClientRect().top - headerOffset();
     if (Math.abs(top) > 8) window.scrollTo({ top: window.scrollY + top, behavior: behavior });
   };
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
@@ -104,9 +105,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   if (spyTargets.length) {
     var setActive = function () {
-      var pos = window.scrollY + 140, current = spyTargets[0];
+      var pos = window.scrollY + headerOffset() + 50, current = spyTargets[0];
       spyTargets.forEach(function (t) { if (t.sec.offsetTop <= pos) current = t; });
-      spyTargets.forEach(function (t) { t.link.classList.toggle("active", t === current); });
+      spyTargets.forEach(function (t) {
+        var isCurrent = t === current;
+        if (isCurrent && !t.link.classList.contains("active")) {
+          // לגלול את הכותרת המודגשת לתוך שורת התפריט במובייל
+          if (t.link.scrollIntoView) t.link.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+        t.link.classList.toggle("active", isCurrent);
+      });
     };
     document.addEventListener("scroll", setActive, { passive: true });
     setActive();

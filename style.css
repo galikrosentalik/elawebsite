@@ -736,22 +736,28 @@ form.contact-form {
   .footer-grid { grid-template-columns: 1fr; }
   .cta { padding: 40px 22px; border-radius: 24px; }
 
-  .menu-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 76px; right: 0; left: 0;
-    background: var(--bg);
-    flex-direction: column;
-    gap: 0;
-    padding: 10px 20px 20px;
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
+  /* במובייל: במקום תפריט נפתח, שורת כותרות אופקית שנגללת ונשארת בראש הדף */
+  .menu-toggle { display: none; }
+  .nav {
+    height: auto;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    row-gap: 2px;
   }
-  .nav-links.open { display: flex; }
-  .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 12px 0; }
-  .nav-links .btn { display: inline-flex; margin-top: 8px; }
+  .logo { font-size: 1.15rem; }
+  .nav-links {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 6px 0 10px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { white-space: nowrap; font-size: 0.95rem; }
+  .nav-links .btn { padding: 6px 14px; font-size: 0.95rem; }
+  section[id] { scroll-margin-top: 118px; }
 }
 
 /* ===== דף הבית החדש: מעט מלל, תמונות וכרטיסים ===== */
