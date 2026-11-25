@@ -68,59 +68,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ניווט עוגנים בעמוד יחיד: סגירת התפריט במובייל אחרי לחיצה
-  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-  navAnchors.forEach(function (a) {
-    a.addEventListener("click", function () {
-      if (links && links.classList.contains("open")) {
-        links.classList.remove("open");
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  });
-
-  // תיקון נחיתה על עוגן: תמונות שנטענות תוך כדי הגלילה מזיזות את הדף,
-  // לכן מיישרים שוב אל הקטע אחרי שהגלילה והטעינה נרגעות
-  var header = document.querySelector(".site-header");
-  var headerOffset = function () { return (header ? header.offsetHeight : 76) + 14; };
-  var realign = function (target, behavior) {
-    var top = target.getBoundingClientRect().top - headerOffset();
-    if (Math.abs(top) > 8) window.scrollTo({ top: window.scrollY + top, behavior: behavior });
-  };
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener("click", function () {
-      var target = document.getElementById(a.getAttribute("href").slice(1));
-      if (!target) return;
-      setTimeout(function () { realign(target, "smooth"); }, 800);
-      setTimeout(function () { realign(target, "auto"); }, 1700);
-    });
-  });
-
-  // סימון הקטע הנוכחי בתפריט בזמן גלילה
-  var spyTargets = [];
-  navAnchors.forEach(function (a) {
-    if (a.classList.contains("btn")) return;
-    var sec = document.querySelector(a.getAttribute("href"));
-    if (sec) spyTargets.push({ link: a, sec: sec });
-  });
-  if (spyTargets.length) {
-    var setActive = function () {
-      var pos = window.scrollY + headerOffset() + 50, current = spyTargets[0];
-      spyTargets.forEach(function (t) { if (t.sec.offsetTop <= pos) current = t; });
-      spyTargets.forEach(function (t) {
-        var isCurrent = t === current;
-        if (isCurrent && !t.link.classList.contains("active")) {
-          // לגלול את הכותרת המודגשת לתוך שורת התפריט במובייל
-          if (t.link.scrollIntoView) t.link.scrollIntoView({ block: "nearest", inline: "nearest" });
-        }
-        t.link.classList.toggle("active", isCurrent);
-      });
-    };
-    document.addEventListener("scroll", setActive, { passive: true });
-    setActive();
-  }
-
   // שנה בתחתית
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+});
+
+// מצגת תמונות מתחלפת (קבוצות): בכל דף שיש בו .slideshow
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".slideshow").forEach(function (show) {
+    var slides = show.querySelectorAll(".slide"), dots = show.querySelector(".slide-dots"), i = 0, t;
+    if (!slides.length) return;
+    slides.forEach(function (sl, k) {
+      var img = sl.querySelector("img"); if (img) img.loading = "eager";
+      if (!dots) return;
+      var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "תמונה " + (k + 1));
+      b.addEventListener("click", function () { go(k); restart(); }); dots.appendChild(b);
+    });
+    function go(k) {
+      slides[i].classList.remove("active"); if (dots) dots.children[i].classList.remove("on");
+      i = (k + slides.length) % slides.length;
+      slides[i].classList.add("active"); if (dots) dots.children[i].classList.add("on");
+    }
+    var paused = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function restart() { clearInterval(t); if (!paused) t = setInterval(function () { go(i + 1); }, 4000); }
+    var pb = document.createElement("button"); pb.type = "button"; pb.className = "motion-toggle";
+    function label() { pb.textContent = paused ? "▶ הפעלה" : "❚❚ עצירה"; pb.setAttribute("aria-label", paused ? "הפעלת החלפת התמונות" : "עצירת החלפת התמונות"); }
+    pb.addEventListener("click", function () { paused = !paused; label(); restart(); });
+    show.appendChild(pb); label();
+    go(0); restart();
+  });
+});
+
+// נגישות: כפתור עצירה לפסים הנעים, ומקלדת לריבועים שנפתחים בלחיצה
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".marquee").forEach(function (mq) {
+    var wrap = document.createElement("div"); wrap.className = "marquee-wrap";
+    mq.parentNode.insertBefore(wrap, mq); wrap.appendChild(mq);
+    var b = document.createElement("button"); b.type = "button"; b.className = "motion-toggle";
+    function label() { var p = mq.classList.contains("is-paused"); b.textContent = p ? "▶ הפעלה" : "❚❚ עצירה"; b.setAttribute("aria-label", p ? "הפעלת התנועה" : "עצירת התנועה"); }
+    b.addEventListener("click", function () { mq.classList.toggle("is-paused"); label(); });
+    wrap.appendChild(b); label();
+  });
+  setTimeout(function () {
+    document.querySelectorAll(".approach-grid > div, .text-card, .sub-topic, .hero-quotes .quote:not([aria-hidden])").forEach(function (el) {
+      el.setAttribute("tabindex", "0"); el.setAttribute("role", "button");
+      el.addEventListener("keydown", function (e) {
+        if (e.target !== el) return;
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); el.click(); }
+      });
+    });
+  }, 0);
 });
