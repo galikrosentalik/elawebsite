@@ -1141,3 +1141,10 @@ form.contact-form {
 .motion-toggle { color: var(--sage-dark); }
 .card .icon, .card:nth-child(even) .icon { background: var(--sand); }
 .photo.contain img, .topic-tile img.contain, .area-card img.diagram { background: #fbf6f0; }
+
+/* תמונות הקליניקה: גלריה קבועה, בלי תנועה */
+.clinic-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
+.clinic-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,.06); display: block; }
+@media (max-width: 700px) { .clinic-photos { grid-template-columns: 1fr 1fr; gap: 10px; } }
+.whoami-text { max-width: 820px; text-align: center; }
+.whoami-text h2 { margin-bottom: 14px; }
