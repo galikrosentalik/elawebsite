@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="איור: שני הורים יושבים על מזרן עם תינוקות">
+  <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.6" fill="#ebe3d8"/><circle cx="12" cy="12" r="2.6" fill="#ebe3d8"/></pattern></defs>
+  <g stroke="#5a4a3f" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="6" y="6" width="628" height="468" rx="18" fill="#f7f3ee" stroke-width="6"/>
+    <rect x="6" y="6" width="628" height="468" rx="18" fill="url(#dots)" stroke="none" opacity=".75"/>
+    <path d="M6,410 L634,410 L634,456 Q634,474 616,474 L24,474 Q6,474 6,456 Z" fill="#e3d8cb" stroke-width="6"/>
+    <rect x="70" y="372" width="500" height="40" rx="14" fill="#c9d6de" stroke-width="6"/>
+    <path d="M96,404 Q170,350 244,404 Z" fill="#5f7688" stroke-width="6"/>
+    <path d="M122,250 Q170,232 218,250 L226,376 L114,376 Z" fill="#a9c4d4" stroke-width="6"/>
+    <circle cx="170" cy="196" r="40" fill="#f7cfae" stroke-width="6"/>
+    <path d="M130,192 C128,148 182.0,142 202.0,172.0 C210,184.0 206.0,192.0 198.0,186.0 C178.0,174.0 154.0,178.0 130,192 Z" fill="#6e5240" stroke-width="5"/>
+    <circle cx="188" cy="198" r="5.5" fill="#5a4a3f" stroke="none"/>
+    <path d="M176,214 Q186,224 196,213" fill="none" stroke-width="4"/>
+    <ellipse cx="172" cy="208" rx="8" ry="5" fill="#e9b59a" stroke="none" opacity=".6"/>
+    <path d="M396,404 Q470,350 544,404 Z" fill="#5f7688" stroke-width="6"/>
+    <path d="M422,250 Q470,232 518,250 L526,376 L414,376 Z" fill="#e9b59a" stroke-width="6"/>
+    <circle cx="470" cy="196" r="40" fill="#f7cfae" stroke-width="6"/>
+    <path d="M430,192 C428,148 482.0,142 502.0,172.0 C510,184.0 506.0,192.0 498.0,186.0 C478.0,174.0 454.0,178.0 430,192 Z" fill="#6e5240" stroke-width="5"/>
+    <circle cx="452" cy="198" r="5.5" fill="#5a4a3f" stroke="none"/>
+    <path d="M440,214 Q450,224 460,213" fill="none" stroke-width="4"/>
+    <ellipse cx="468" cy="208" rx="8" ry="5" fill="#e9b59a" stroke="none" opacity=".6"/>
+    <ellipse cx="296" cy="378" rx="46" ry="22" fill="#d9c6ae" stroke-width="6"/>
+    <circle cx="256" cy="360" r="24" fill="#f7cfae" stroke-width="5"/>
+    <circle cx="262" cy="358" r="3.5" fill="#5a4a3f" stroke="none"/>
+    <ellipse cx="364" cy="372" rx="28" ry="26" fill="#a9c4d4" stroke-width="6"/>
+    <circle cx="364" cy="332" r="24" fill="#f7cfae" stroke-width="5"/>
+    <circle cx="356" cy="332" r="3.5" fill="#5a4a3f" stroke="none"/>
+    <path d="M352,344 Q358,350 364,344" fill="none" stroke-width="3"/>
+    <path d="M320,110 C310,94 288,104 300,124 L320,142 L340,124 C352,104 330,94 320,110 Z" fill="#e9b59a" stroke-width="5"/>
+  </g>
+</svg>

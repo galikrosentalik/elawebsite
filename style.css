@@ -1148,3 +1148,7 @@ form.contact-form {
 @media (max-width: 700px) { .clinic-photos { grid-template-columns: 1fr 1fr; gap: 10px; } }
 .whoami-text { max-width: 820px; text-align: center; }
 .whoami-text h2 { margin-bottom: 14px; }
+.clinic-photos { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 860px) { .clinic-photos { grid-template-columns: 1fr 1fr; gap: 10px; } }
+/* איורים בכרטיסי תחומי הטיפול */
+.area-card img.illus, .topic-tile img.illus { object-fit: contain; background: #f7f3ee; aspect-ratio: 4 / 3; object-position: center; }
