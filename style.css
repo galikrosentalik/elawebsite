@@ -1112,3 +1112,32 @@ form.contact-form {
   .quotes-band { padding: 48px 0 40px; }
   .whoami, .approach, .areas, .clinic { padding: 64px 0; }
 }
+/* סדר חדש: ההמלצות אחרי תחומי טיפול */
+.clinic { background: var(--sand); }
+.contact-band { background: var(--bg); }
+/* רקעים מתחלפים לפי הסדר החדש */
+.whoami { background: var(--bg); }
+.approach { background: var(--sand); }
+.areas { background: var(--bg); }
+.quotes-band { background: var(--sand); }
+.clinic { background: var(--bg); }
+.contact-band { background: var(--sand); }
+
+/* פלטה רגועה: קרם/בז' לרקעים, ירוק מרווה לכותרות וכפתורים, טרקוטה עדין להדגשות */
+:root {
+  --peach: #c98a6c;
+  --peach-soft: #f3e6dc;
+  --accent: #a8603f;
+}
+.eyebrow { background: transparent; color: var(--accent); padding-right: 0; padding-left: 0; letter-spacing: .3px; font-weight: 700; }
+.btn-whatsapp { background: var(--sage-dark); color: #fff; }
+.btn-whatsapp:hover { background: #355644; }
+.whatsapp-float { background: var(--sage-dark); }
+.text-card .tc-stars { color: var(--accent); }
+.text-card .tc-src { color: var(--sage-dark); }
+.step::before { background: var(--sage); }
+.quote p::before, .quote-pop-box p::before { color: var(--sage); }
+.groups-status, .slideshow .slide figcaption, .soon-photos figcaption, .approach-photo figcaption { color: var(--sage-dark); }
+.motion-toggle { color: var(--sage-dark); }
+.card .icon, .card:nth-child(even) .icon { background: var(--sand); }
+.photo.contain img, .topic-tile img.contain, .area-card img.diagram { background: #fbf6f0; }
