@@ -1152,3 +1152,6 @@ form.contact-form {
 @media (max-width: 860px) { .clinic-photos { grid-template-columns: 1fr 1fr; gap: 10px; } }
 /* איורים בכרטיסי תחומי הטיפול */
 .area-card img.illus, .topic-tile img.illus { object-fit: contain; background: #f7f3ee; aspect-ratio: 4 / 3; object-position: center; }
+.story-photo { display: block; width: 100%; max-width: 560px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); margin: 28px auto 0; box-shadow: var(--shadow); }
+.approach-grid > div:not(.open) p ~ p { display: none; }
+.approach-grid > div.open p + p { margin-top: 10px; }
