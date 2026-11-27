@@ -1,5 +1,6 @@
 /* ===== צבעים וגופנים ===== */
 :root {
+  color-scheme: only light;
   --bg: #fdf9f5;
   --surface: #ffffff;
   --sand: #f6ece2;
